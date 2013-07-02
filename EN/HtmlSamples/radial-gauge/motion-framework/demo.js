@@ -1,11 +1,39 @@
 $(function () {
-
+            
             $("#radialgauge").igRadialGauge({
                 width: "500px",
                 height: "500px",
-                transitionDuration: "1500"
+                backingBrush: "#FFFFFF",
+                backingOutline: "#FFFFFF",
+                scaleBrush: "#333333",
+                fontBrush: "#000000",
+                transitionDuration: 2000,
+                minimumValue: 0,
+                maximumValue: 10,
+                value: 1,
+                ranges: [{
+                    name: "range1",
+                    startValue: 0,
+                    endValue: 3,
+                    outerStartExtent: .6,
+                    outerEndExtent: .66,
+                    brush: "#A4bA29 "
+                }, {
+                    name: "range2",
+                    startValue: 3,
+                    endValue: 7,
+                    outerStartExtent: .66,
+                    outerEndExtent: .72,
+                    brush: "#FDBD48 "
+                }, {
+                    name: "range3",
+                    startValue: 7,
+                    endValue: 10,
+                    outerStartExtent: .72,
+                    outerEndExtent: .78,
+                    brush: "#D3404B "
+                }]
             });
-
             $("#gaugeSettings").change(function (e) {
                 var setting = $(this).val();
                 if (setting == "setting1")
@@ -16,74 +44,82 @@ $(function () {
                     setting3();
             });
 
-            function setting1() {
-                $("#radialgauge").igRadialGauge({
-                    height: "500px",
-                    width: "500px",
-                    minimumValue: "0",
-                    maximumValue: "100",
-                    value: "0",
-                    
-                    //Scale Settings
-                    scaleStartAngle: "135",
-                    scaleEndAngle: "45",
-                    scaleBrush: "rgba(68, 172, 214, 1)",
+           function setting1 () {
+                    $("#radialgauge").igRadialGauge({
+                        formatLabel: null,
+                        alignLabel: null,
+                        transitionDuration: 2000,
+                        minimumValue: 0,
+                        maximumValue: 10,
+                        labelInterval: NaN,
+                        needleEndExtent: NaN,
+                        scaleStartAngle: 135,
+                        scaleEndAngle: 45,
+                        scaleEndExtent: .57,
+                        needleBrush: null,
+                        needleOutline: null,
+                        backingBrush: "#FFFFFF",
+                        scaleBrush: "#333",
+                        tickBrush: null,
+                        minorTickBrush: null,
+                        backingOutline: "#FFFFFF",
+                        needlePivotShape: "circleOverlay",
+                        needleShape: "needle",
+                        needlePivotWidthRatio: .2,
+                        fontBrush: "black",
+                        value: 1
+                    });
 
-                    //Backing Settings
-                    backingShape: "fitted",
-                    backingOutline: "rgba(168, 168, 168, 1)",
-                    backingBrush: "rgba(236, 237, 239, 1)",
-                    
-                    //Needle Settings
-                    needleShape: "needle",
-                    needlePivotShape: "circleOverlay",
-                    needleEndExtent: "0.55",
-                    needlePointFeatureExtent: "0.3",
-                    needlePivotWidthRatio: "0.2",
+                    $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range1", remove: true }]);
+                    $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range2", remove: true }]);
+                    $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range3", remove: true }]);
 
-                    //TickMark Settings
-                    tickBrush: "rgba(51, 51, 51, 1)",
-                    minorTickBrush: "rgba(73, 73, 73, 1)",
-
-                    //Label Settings
-                    labelInterval: "8"
-                });
-                $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range1", remove: true }]);
-                $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range2", remove: true }]);
-                $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range3", remove: true }]);
+                    $("#radialgauge").igRadialGauge("option", "ranges", [{
+                        name: "range1",
+                        startValue: 0,
+                        endValue: 3,
+                        outerStartExtent: .6,
+                        outerEndExtent: .66,
+                        brush: "#A4bA29 "
+                    }, {
+                        name: "range2",
+                        startValue: 3,
+                        endValue: 7,
+                        outerStartExtent: .66,
+                        outerEndExtent: .72,
+                        brush: "#FDBD48 "
+                    }, {
+                        name: "range3",
+                        startValue: 7,
+                        endValue: 10,
+                        outerStartExtent: .72,
+                        outerEndExtent: .78,
+                        brush: "#D3404B "
+                    }]);
             }
-
-            function setting2() {
+           
+           function setting2 () {
                 $("#radialgauge").igRadialGauge({
-                    height: "500px",
-                    width: "500px",
-                    minimumValue: "0",
-                    maximumValue: "10",
-                    value: "10",
-
-                    //Scale Settings
-                    scaleStartAngle: "180",
-                    scaleEndAngle: "0",
-                    scaleBrush: "transparent",
-                    
-                    //Backing Settings
-                    backingShape: "fitted",
-                    backingOutline: "rgba(22, 169, 231, 1)",
-                    backingBrush: "rgba(224, 224, 224, 1)",
-
-                    //Needle Settings
-                    needleShape: "needle",
-                    needlePivotShape: "circleOverlay",
-                    needleEndExtent: "0.55",
-                    needlePointFeatureExtent: "0.3",
-                    needlePivotWidthRatio: "0.2",
-
-                    //TickMark Settings
-                    tickBrush: "rgba(160, 160, 160, 1)",
-                    minorTickBrush: "gray",
-
-                    //Label Settings
-                    labelInterval: "1"
+                    formatLabel: null,
+                    alignLabel: null,
+                    needleShape: "needleWithBulb",
+                    needlePivotShape: "circleWithHole",
+                    backingBrush: "#ecedef",
+                    scaleBrush: "#44ACD6",
+                    scaleEndExtent: .8,
+                    tickBrush: "white",
+                    minorTickBrush: "white",
+                    needlePivotWidthRatio: .2,
+                    fontBrush: "white",
+                    value: 8,
+                    scaleStartAngle: 180,
+                    scaleEndAngle: 0,
+                    minimumValue: 0,
+                    maximumValue: 10,
+                    labelInterval: NaN,
+                    needleEndExtent: .78,
+                    needleBrush: "#494949",
+                    needleOutline: "#333333"
                 });
 
                 $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range1", remove: true }]);
@@ -92,59 +128,55 @@ $(function () {
 
                 $("#radialgauge").igRadialGauge("option", "ranges", [{
                     name: "range1",
-                    brush: "rgba(164, 189, 41, 1)",
-                    startValue: "0",
-                    endValue: "3",
-                    outerStartExtent: "0.6",
-                    outerEndExtent: "0.66"
+                    startValue: 0,
+                    endValue: 5,
+                    outerStartExtent: .7,
+                    outerEndExtent: .7,
+                    brush: "#A4bA29"
                 }, {
                     name: "range2",
-                    brush: "rgba(253, 189, 72, 1)",
-                    startValue: "3",
-                    endValue: "7",
-                    outerStartExtent: "0.66",
-                    outerEndExtent: "0.72"
+                    startValue: 5,
+                    endValue: 9,
+                    outerStartExtent: .7,
+                    outerEndExtent: .7,
+                    brush: "#FDBD48"
                 }, {
                     name: "range3",
-                    brush: "rgba(211, 64, 75, 1)",
-                    startValue: "7",
-                    endValue: "10",
-                    outerStartExtent: "0.72",
-                    outerEndExtent: "0.78"
+                    startValue: 9,
+                    endValue: 10,
+                    outerStartExtent: .7,
+                    outerEndExtent: .7,
+                    brush: "#D3404B"
                 }]);
             }
-
-            function setting3() {
+            
+           function setting3 () {
                 $("#radialgauge").igRadialGauge({
-
-                    height: "500px",
-                    width: "500px",
-
-                    minimumValue: "0",
-                    maximumValue: "5",
-                    value: "2.30",
-
-                    //Scale Settings
-                    scaleStartAngle: "200",
-                    scaleEndAngle: "-20",
+                    needleBrush: "rgba(40,40,40, 1)",
+                    needleOutline: "rgba(40,40,40, 1)",
+                    tickBrush: "transparent",
                     scaleBrush: "transparent",
-
-                    //Backing Settings
-                    backingOutline: "transparent",
                     backingBrush: "transparent",
+                    backingOutline: "transparent",
+                    minimumValue: 0.00,
+                    maximumValue: 5.00,
+                    value: 2.30,
+                    scaleStartAngle: 200,
+                    scaleEndAngle: -20,
 
-                    //Needle Settings
-                    needleEndExtent: "1",
+                    needleEndExtent: 1,
                     needleShape: "triangle",
                     needlePivotShape: "circle",
-                    needlePivotWidthRatio: "0.1",
-
-                    //TickMark Settings
-                    tickBrush: "transparent",
+                    needlePivotWidthRatio: .1,
                     minorTickBrush: "transparent",
-
-                    //Label Settings
-                    labelInterval: "5"
+                    labelInterval: 5,
+                    formatLabel: function (ui, args) {
+                        args.label = args.value.toFixed(2);
+                    },
+                    alignLabel: function (ui, args) {
+                        args.offsetY = 10;
+                    },
+                    fontBrush: "black"
                 });
 
                 $("#radialgauge").igRadialGauge("option", "ranges", [{ name: "range1", remove: true }]);
@@ -153,34 +185,22 @@ $(function () {
 
                 $("#radialgauge").igRadialGauge("option", "ranges", [{
                     name: "range1",
-                    brush: "rgba(211, 64, 75, 1)",
-                    startValue: "0",
-                    endValue: "2.3",
-                    outerStartExtent: "1",
-                    outerEndExtent: "1",
-                    innerStartExtent: "0.3",
-                    innerEndExtent: "0.3",
+                    startValue: 0,
+                    endValue: 2.3,
+                    outerStartExtent: 1,
+                    outerEndExtent: 1,
+                    innerStartExtent: .3,
+                    innerEndExtent: .3,
+                    brush: "rgba(240,71,64, 1)"
                 }, {
                     name: "range2",
-                    brush: "rgba(164, 189, 41, 1)",
-                    startValue: "2.30",
-                    endValue: "5",
-                    outerStartExtent: "1",
-                    outerEndExtent: "1",
-                    innerStartExtent: "0.3",
-                    innerEndExtent: "0.3"
+                    startValue: 2.30,
+                    endValue: 5,
+                    outerStartExtent: 1,
+                    outerEndExtent: 1,
+                    innerStartExtent: .3,
+                    innerEndExtent: .3,
+                    brush: "rgba(224,224,224, 1)"
                 }]);
-            }
-        });
-
-        // Transiton Duration Slider
-        $("#transitionDurationSlider").slider({
-            min: 0,
-            max: 5,
-            step: 0.01,
-            value: 2,
-            slide: function (event, ui) {
-                $("#radialgauge").igRadialGauge("option", "transitionDuration", ui.value * 1000);
-                $("#transitionDurationLabel").text(ui.value);
             }
         });

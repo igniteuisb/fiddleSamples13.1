@@ -111,24 +111,23 @@ $(function () {
                     // then the dataType: "number" is required, otherwise, dataSource may misbehave
                     headerText: "Employee ID", key: "EmployeeID", width: "100px", dataType: "number"
                 }, {
-                    headerText: "First Name", key: "FirstName", width: "100px"
+                    headerText: "First Name", key: "FirstName", width: "130px"
                 }, {
                     headerText: "Last Name", key: "LastName", width: "100px"
                 }, {
-                    headerText: "Title", key: "Title", width: "140px"
+                    headerText: "Title", key: "Title", width: "150px"
                 }, {
                     headerText: "Birth Date", key: "BirthDate", width: "120px", dataType: "date"
                 }, {
-                    headerText: "Postal Code", key: "PostalCode", width: "80px", dataType: "number"
+                    headerText: "Postal Code", key: "PostalCode", width: "150px", dataType: "number"
                 }, {
-                    headerText: "Country", key: "Country", width: "100px", dataType: "string"
+                    headerText: "Country", key: "Country", width: "150px", dataType: "string"
                 }
                 ],
                 dataSource: northwind,
                 dataSourceType: "json",
                 responseDataKey: "results",
-                height: "500px",
-                width: "740px",
+                height: "700px",
                 tabIndex: 1,
                 features: [
                     {
@@ -137,8 +136,7 @@ $(function () {
                         multipleSelection: true
                     },
                     {
-                        name: "Paging",
-                        pageSize: 5
+                        name: "Paging"
                     },
                     {
                         name: "Filtering"

@@ -1,7 +1,4 @@
 $(function () {
-            // Used to show output in the API Viewer at runtime, 
-            // defined in external script 'apiviewer.js'    
-            var apiViewer = new $.ig.apiViewer();
 
             $("#rowSelectorColumnWidthEditor").igNumericEditor(
                  {
@@ -38,7 +35,7 @@ $(function () {
 
             $("#cellSelectionGrid").igGrid({
                 height: "350px",
-                width: "740px",
+                width: "100%",
                 autoGenerateColumns: false,
                 dataSource: northwindEmployees,
                 responseDataKey: "results",
@@ -73,7 +70,7 @@ $(function () {
   
             $("#rowSelectorsGrid").igGrid({
                 height: "350px",
-                width: "740px",
+                width: "100%",
                 autoGenerateColumns: false,
                 dataSource: northwindEmployees,
                 responseDataKey: "results",

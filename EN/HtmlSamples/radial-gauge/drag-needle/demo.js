@@ -1,8 +1,32 @@
 $(function () {
             $("#radialgauge").igRadialGauge({
-                height: "500px",
-                width: "500px",
-                transitionDuration: "1500"
+                height: "400px",
+                width: "400px",
+                interval: 2,
+                labelInterval: 1,
+                value: 0,
+                centerX: 0.5,
+                centerY: 0.5,
+                minimumValue: 0,
+                maximumValue: 10,
+                backingStrokeThickness: 1,
+                scaleStartAngle: 120,
+                scaleEndAngle: 60,
+                scaleStartExtent: 0.70,
+                scaleEndExtent: 0.79,
+                scaleOversweep: 0,
+                tickStartExtent: 0.62,
+                tickEndExtent: 0.69,
+                minorTickStartExtent: 0.65,
+                minorTickEndExtent: 0.69,
+                labelExtent: 0.75,
+                fontBrush: "white",
+                needleShape: "rectangle",
+                needleStartExtent: -0.2,
+                needleEndExtent: 0.7,
+                needlePivotShape: "circleWithHole",
+                transitionDuration: 0,
+                scaleSweepDirection: "clockwise"
             });
 
             var isDragging = false;
@@ -24,8 +48,8 @@ $(function () {
 
             // Function that performs the needle drag to the new point
             function dragNeedle(e) {
-                var minimumValue = 0;
-                var maximumValue = 100;
+                var minimumValue = $("#radialgauge").igRadialGauge("option", "minimumValue");
+                var maximumValue = $("#radialgauge").igRadialGauge("option", "maximumValue");
 
                 var startValue = minimumValue <= maximumValue ? minimumValue : maximumValue;
                 var endValue = minimumValue > maximumValue ? minimumValue : maximumValue;
@@ -53,17 +77,5 @@ $(function () {
 						navigator.userAgent.match(/webOS/i) ||
 						navigator.userAgent.match(/Windows Phone/i) ||
 						navigator.userAgent.match(/ZuneWP7/i) ? true : false;
-            }
-        });
-
-        // Transiton Duration Slider
-        $("#transitionDurationSlider").slider({
-            min: 0,
-            max: 5,
-            step: 0.01,
-            value: 2,
-            slide: function (event, ui) {
-                $("#radialgauge").igRadialGauge("option", "transitionDuration", ui.value * 1000);
-                $("#transitionDurationLabel").text(ui.value);
             }
         });

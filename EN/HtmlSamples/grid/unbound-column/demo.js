@@ -8,23 +8,19 @@ $(function () {
 
             /*----------------- Method & Option Examples -------------------------*/
             $("#getUnboundValues").igButton({ labelText: $("#getUnboundValues").val() });
-
             $("#getUnboundValues").click(function (e) {
                 var columnText = $("#columnText").val();
-                var column = $('#grid10').igGrid("columnByText", $.trim(columnText));
-
-                var unboundValues = $('#grid10').igGrid('getUnboundValues', column.key);
+                var column = $('#grid').igGrid("columnByText", $.trim(columnText));
+                var unboundValues = $('#grid').igGrid('getUnboundValues', column.key);
                 message = "The unbound values of the column are: " + unboundValues;
                 apiViewer.log(message);
             });
 
             $("#getUnboundColumnByKey").igButton({ labelText: $("#getUnboundColumnByKey").val() });
-
             $("#getUnboundColumnByKey").click(function (e) {
-
                 var columnText = $("#columnText").val();
-                var column = $('#grid10').igGrid("columnByText", $.trim(columnText));
-                var unboundColumn = $('#grid10').igGrid('getUnboundColumnByKey', column.key);
+                var column = $('#grid').igGrid("columnByText", $.trim(columnText));
+                var unboundColumn = $('#grid').igGrid('getUnboundColumnByKey', column.key);
 
                 var message = "The formula function of the column is: " + unboundColumn.formula;
                 apiViewer.log(message);
@@ -37,7 +33,6 @@ $(function () {
             });
 
             $("#setUnboundValues").igButton({ labelText: $("#setUnboundValues").val() });
-
             $("#setUnboundValues").click(function (e) {
                 var i, vals = [], boolVals = [];
 
@@ -45,27 +40,27 @@ $(function () {
                     vals.push(new Date());
                     boolVals.push(false);
                 }
-                $('#grid10').igGrid('setUnboundValues', 'PromotionExpDate', vals);
-                $('#grid10').igGrid('setUnboundValues', 'IsPromotion', boolVals);
+                $('#grid').igGrid('setUnboundValues', 'PromotionExpDate', vals);
+                $('#grid').igGrid('setUnboundValues', 'IsPromotion', boolVals);
                 return;
             });
 
             /*----------------- Event Examples -------------------------*/
 
-            $("#grid10").on("iggridupdatingdatadirty", function (event, ui) {
-                $("#grid10").igGrid("saveChanges");
+            $("#grid").on("iggridupdatingdatadirty", function (event, ui) {
+                $("#grid").igGrid("saveChanges");
                 return false;
             });
 
-            $("#grid10").on("iggridcellclick", function (event, ui) {
-                var cell = $('#grid10').igGrid("cellAt", ui.colIndex, ui.rowIndex);
+            $("#grid").on("iggridcellclick", function (event, ui) {
+                var cell = $('#grid').igGrid("cellAt", ui.colIndex, ui.rowIndex);
 
                 if (ui.colKey == "Total") {
                     apiViewer.log("The Total's cell text is " + $(cell).text());
                 }
             });
 
-            $("#grid10").on("iggriddatabound", function (event, ui) {
+            $("#grid").on("iggriddatabound", function (event, ui) {
 
                 if (_isDataBound === false) {
                     _isDataBound = true;
@@ -88,25 +83,24 @@ $(function () {
                 }
             });
 
-            $("#grid10").on("iggridupdatingeditrowended", function (event, ui) {
+            $("#grid").on("iggridupdatingeditrowended", function (event, ui) {
                 var unitPrice = ui.values['UnitPrice'];
                 var unitsInStock = ui.values['UnitsInStock'];
                 var totalValue = (unitPrice * unitsInStock) || ui.values["Total"];
-                $("#grid10").igGridUpdating("setCellValue", ui.rowID, "Total", totalValue);
+                $("#grid").igGridUpdating("setCellValue", ui.rowID, "Total", totalValue);
 
                 if (totalValue < 1000) {
-                    $("#grid10").igGridUpdating("setCellValue", ui.rowID, "IsPromotion", true);
+                    $("#grid").igGridUpdating("setCellValue", ui.rowID, "IsPromotion", true);
                 }
                 else {
-                    $("#grid10").igGridUpdating("setCellValue", ui.rowID, "IsPromotion", false);
+                    $("#grid").igGridUpdating("setCellValue", ui.rowID, "IsPromotion", false);
                 }
             });
 
             /*----------------- Instantiation -------------------------*/
-
-            $("#grid10").igGrid({
+            $("#grid").igGrid({
                 primaryKey: "ProductID",
-                width: '740px',
+                width: '100%',
                 height: '600px',
                 autoGenerateColumns: false,
                 autoCommit: true,
@@ -118,7 +112,7 @@ $(function () {
                     { headerText: "Units in Stock", key: "UnitsInStock", dataType: "number" },
                     { headerText: "Unit Price", key: "UnitPrice", dataType: "number", format: "currency" },
                     {
-                        headerText: "Promotion Exp Date", key: "PromotionExpDate", dataType: "date", unbound: true, format: "date",
+                        headerText: "Promotion Exp Date", key: "PromotionExpDate", dataType: "date", unbound: true,
                         unboundValues: [new Date('4/24/2012'), new Date('8/24/2012'), new Date('6/24/2012'), new Date('7/24/2012'), new Date('9/24/2012'), new Date('10/24/2012'), new Date('11/24/2012')]
                     },
                     { headerText: "Is Promotion", key: "IsPromotion", dataType: "bool", unbound: true, format: "checkbox" },
@@ -143,8 +137,7 @@ $(function () {
                         type: "local"
                     },
                     {
-                        name: "Summaries",
-                        type: "local"
+                        name: "Summaries"
                     },
                     {
                         name: "ColumnMoving",
@@ -157,7 +150,7 @@ $(function () {
                         name: 'Paging',
                         type: "local",
                         pageSizeList: [5, 10, 25, 50],
-                        pageSize: 5
+                        pageSize: 10
                     },
                     {
                         name: "Hiding"
