@@ -1,0 +1,72 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+
+<div id="radialgauge"></div>
+    <div>
+        <fieldset id="gaugeOptions">
+            <legend>Options</legend>
+            <table>
+                <tr>
+                    <td>Start Extent</td>
+                    <td>
+                        <div id="scaleStartExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="startExtentLabel">0.57</label>
+                    </td>
+
+                    <td>End Extent</td>
+                    <td>
+                        <div id="scaleEndExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="endExtentLabel">0.57</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Scale Oversweep</td>
+                    <td>
+                        <div id="scaleOversweepSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="scaleOversweepLabel">3</label>
+                    </td>
+
+                    <td>Sweep Direction</td>
+                    <td>
+                        <select id="scaleOversweepDropdown">
+                            <option value="clockwise" selected="selected">clockwise</option>
+                            <option value="counterclockwise">counterclockwise</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Scale Brush</td>
+                    <td>
+                        <select id="scaleBrushDropdown">
+                            <option value="red">Red</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="45ADD6" selected="selected">Light Blue</option>
+                            <option value="black">Black</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transition Duration</td>
+                    <td>
+                        <div id="transitionDurationSlider" style="width : 100px; margin : 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="transitionDurationLabel">2</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>

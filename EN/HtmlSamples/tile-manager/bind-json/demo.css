@@ -9,3 +9,11 @@
 			float: left;
 			margin-right: 10px;
 		}
+        #dashboard img.minimized {
+			width: 90%;
+			float: left;
+			margin: 10px;
+		}
+        #dashboard .color {
+            color: blue;
+        }

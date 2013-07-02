@@ -1,0 +1,159 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+
+<div id="radialgauge"></div>
+    <div>
+        <fieldset id="gaugeOptions">
+            <legend>Options</legend>
+            <table> 
+                <tr>
+                    <td colspan="6"><strong>Radial Gauge Options</strong></td>
+
+                </tr>
+                <tr>
+                    <td>Needle Value</td>
+                    <td>
+                        <div id="needleValueSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="needleValueLabel">60</label>
+                    </td>
+
+                    <td>Start Extent</td>
+                    <td>
+                        <div id="startExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="startExtentLabel">0</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>End Extent</td>
+                    <td>
+                        <div id="endExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="endExtentLabel">0.48</label>
+                    </td>
+
+                    <td>Start Width Ratio</td>
+                    <td>
+                        <div id="startWidthRatioSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="startWidthRatioLabel">0</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>End Width Ratio</td>
+                    <td>
+                        <div id="endWidthRatioSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="endWidthRatioLabel">0</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6"><strong>Needle Shapes</strong></td>
+                </tr>
+                <tr>
+                    <td>Needle Shape</td>
+                    <td>
+                        <select id="needleShapeDropdown">
+                            <option value="none">None</option>
+                            <option value="rectangle">rectangle</option>
+                            <option value="triangle">triangle</option>
+                            <option value="needle" selected="selected">needle</option>
+                            <option value="trapezoid">trapezoid</option>
+                            <option value="rectangleWithBulb">rectangleWithBulb</option>
+                            <option value="triangleWithBulb">triangleWithBulb</option>
+                            <option value="triangleWithBulb">triangleWithBulb</option>
+                            <option value="needleWithBulb">needleWithBulb</option>
+                            <option value="trapezoidWithBulb">trapezoidWithBulb</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td>Pivot Shape</td>
+                    <td>
+                        <select id="pivotShapesDropdown">
+                            <option value="none">None</option>
+                            <option value="circle">circle</option>
+                            <option value="circleWithHole">circleWithHole</option>
+                            <option value="circleOverlay" selected="selected">circleOverlay</option>
+                            <option value="circleOverlayWithHole">circleOverlayWithHole</option>
+                            <option value="circleUnderlay">circleUnderlay</option>
+                            <option value="circleUnderlayWithHole">circleUnderlayWithHole</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+
+                        <table>
+                            <tr>
+                                <td colspan="8"><strong>Needle Brushes</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Needle Brush</td>
+                                <td>
+                                    <select id="needleBrushDropdown">
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="black" selected="selected">Black</option>
+                                    </select>
+                                </td>
+                                <td>Needle Outline</td>
+                                <td>
+                                    <select id="needleOutlineDropdown">
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="black" selected="selected">Black</option>
+                                    </select>
+                                </td>
+
+                                <td>Pivot Brush</td>
+                                <td>
+                                    <select id="pivotBrushDropdown">
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="black" selected="selected">Black</option>
+                                    </select>
+                                </td>
+
+                                <td>Pivot Outline</td>
+                                <td>
+                                    <select id="pivotOutlineDropdown">
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="black" selected="selected">Black</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transition Duration</td>
+                    <td>
+                        <div id="transitionDurationSlider" style="width : 100px; margin : 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="transitionDurationLabel">2</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>

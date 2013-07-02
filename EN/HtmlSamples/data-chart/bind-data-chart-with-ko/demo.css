@@ -1,0 +1,39 @@
+.float { float: left; margin: 10px 10px 0 0; }
+        .clear { clear: both; }
+        .hr { border-top: 1px solid #2CBDF9; }
+        .options-container { width: 220px; padding-top: 70px; }
+        .main-container { float: left; width: 750px; height: 850px; }
+        .editor-container { float: left; margin: 0 0 20px 30px; }
+        .editor-container .labels { display: block; font-size: 13px; padding-bottom: 5px; }
+        .slider-container { float: left; width: 645px; padding: 10px 20px 10px 30px; margin: 10px 5px; }
+        .slider-contaier-2 { width: 600px; padding-left: 50px; }
+        .slider-title, .eidtors-title { font-size: 13px; padding: 3px 0 20px 2px; }
+        .window-container-1, .window-container-2 { position: absolute; width: 710px; }
+        .window-container-2 { display: none; }
+        .year-profit { float: right; margin-left: 5px; font-weight: bold; border: none; }
+        .eidtors-title { padding: 0 0 3px 2px; }
+        .number-container { float: right; font-size: 30px; width: 200px; text-align: right; }
+        .btn-refresh { float: right; width: 48px; height: 48px; padding: 0; margin: 0;
+            border-image-width: 0; cursor: pointer; border-radius: 5px; border: 1px solid #535353;
+            background-image: url(http://igniteuisamples.dev.infragistics.local/13-2/images/samples/data-chart/music-controls-sprite.png); 
+            background-position: -434px -2px; background-repeat: no-repeat; }
+            .btn-refresh:hover { background-position: -434px -50px; }
+        .windows-button { float: right; width: 44px; height: 44px; margin: 54px 0 0 0;
+                          border-image-width: 0; cursor: pointer; border-radius: 5px; border: 1px solid #535353;
+                          background-image: url(http://igniteuisamples.dev.infragistics.local/13-2/images/samples/data-chart/music-controls-sprite.png);
+                          background-repeat: no-repeat;   }
+        #loadHidden { background-position: -290px -3px; }
+            #loadHidden:hover { background-position: -290px -50px; }
+        #loadInitial { background-position: -147px -3px; display: none; }
+            #loadInitial:hover { background-position: -147px -50px; }
+        #legendLineChart { position: absolute; top: 165px; left: 585px; border: none; background-color: transparent; font-weight: bold; }
+        #legendPolarChartRevenue { position: absolute; top: 264px; font-weight: bold; }
+        #legendPolarChartExpenses { position: absolute; top: 264px; left: 236px; font-weight: bold; }
+        #legendPolarChartProfit { position: absolute; top: 264px;  left: 474px; font-weight: bold; }
+        #legendRangeChart { position: absolute; top: 695px; left: 30px; border: none; background-color: transparent; font-weight: bold; }
+        #legendBarColumnChart { position: absolute; top: 188px; left: 25px; border: none; background-color: transparent; font-weight: bold; }
+        #legendWaterfallChart { position: absolute; top: 418px; left: 25px; border: none; background-color: transparent; font-weight: bold; }
+        #legendBubbleChart { position: absolute; top: 690px; left: 36px; border: none; background-color: transparent; font-weight: bold; }
+        #legendBubbleChartY { position: absolute; top: 530px; left: 36px; border: none; background-color: transparent; font-size: 12px; font-weight: bold; }
+        #legendBubbleChartX { position: absolute; top: 690px; left: 610px; border: none; background-color: transparent; font-size: 12px; font-weight: bold; }
+            #legendBubbleChartY .arrow, #legendBubbleChartX .arrow { color: #2CBDF9; font-size: 23px; padding: 0 4px; }

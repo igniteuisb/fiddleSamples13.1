@@ -1,21 +1,22 @@
 $(function () {
             $("#grid").igGrid({
                 columns: [
-                    { headerText: "Customer ID", key: "ID", dataType: "string" },
-                    { headerText: "Company Name", key: "CompanyName", dataType: "string" },
-                    { headerText: "Contact Name", key: "ContactName", dataType: "string" },
-                    { headerText: "Contact Title", key: "ContactTitle", dataType: "string" },
-                    { headerText: "Address", key: "Address", dataType: "string" },
-                    { headerText: "City", key: "City", dataType: "string" },
-                    { headerText: "Country", key: "Country", dataType: "string" }
+                    { headerText: "Customer ID", key: "ID", dataType: "string", width:"100px" },
+                    { headerText: "Company Name", key: "CompanyName", dataType: "string", width: "120px" },
+                    { headerText: "Contact Name", key: "ContactName", dataType: "string", width: "100px" },
+                    { headerText: "Contact Title", key: "ContactTitle", dataType: "string", width: "120px" },
+                    { headerText: "Address", key: "Address", dataType: "string", width: "110px" },
+                    { headerText: "City", key: "City", dataType: "string", width: "100px" },
+                    { headerText: "Country", key: "Country", dataType: "string", width: "60px" }
                 ],
-                autoGenerateColumns: false,
+                autoGenerateColumns: false,                
                 dataSource: nwCustomersWithOrders,
-                width: "100%",
+                width: "740px",
                 height: "100%",
                 features: [
                     {
                         name: "Responsive",
+                        enableVerticalRendering: false,
                         columnSettings: [
                             {
                                 columnKey: "ID",

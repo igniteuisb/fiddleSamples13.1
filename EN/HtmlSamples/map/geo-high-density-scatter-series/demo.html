@@ -1,0 +1,117 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/apiviewer.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js-data/high-density-data"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+
+<script id="cityTemplate" type="text/x-jquery-tmpl">
+        <table>
+            <tr><td class="tooltipHeading" colspan="2">${item.name}</td></tr>
+        </table>
+    </script>
+
+<div id="map"></div>
+
+    <table class="options">
+     
+        
+        <tr>
+                     <td style="width: 150px;">
+                        Resolution
+                    </td>
+                    <td>
+                         <div id="resolutionSlider" class="slider"></div>
+                    </td>
+                    <td style="width: 25px;">
+                        <label id="resolutionLabel">0</label>
+                    </td>
+
+                    <td>
+                         Point Extent
+                    </td>
+                    <td>
+                         <div id="pointExtentSlider" class="slider"></div>
+                    </td>
+                    <td>
+                        <label id="pointExtentLabel">1</label>
+                    </td>
+
+                </tr>
+
+               <tr>
+                     <td style="width: 150px;">
+                         Minimum Heat Value
+                    </td>
+                    <td>
+                         <div id="minimumHeatValueSlider" class="slider"></div>
+                    </td>
+                    <td>
+                        <label id="minimumHeatValueLabel">0</label>
+                    </td>
+
+                   <td>
+                         Maximum Heat Value
+                    </td>
+                    <td>
+                         <div id="maximumHeatValueSlider" class="slider"></div>
+                    </td>
+                    <td>
+                        <label id="maximumHeatValueLabel">50</label>
+                    </td>
+                   
+                </tr>
+
+                <tr>
+                     <td>
+                         Minimum Heat Color
+                    </td>
+                    <td>
+                         <select id="minimumHeatColorDropDown">
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="black" selected="selected">Black</option>
+                         </select>
+                    </td>
+                    <td></td>
+                    <td>
+                         Maximum Heat Color
+                    </td>
+                    <td>
+                         <select id="maximumHeatColorDropDown">
+                            <option value="red" selected="selected">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="black">Black</option>
+                         </select>
+                    </td>
+                    <td></td>
+                </tr>
+
+                 <tr>
+                     <td colspan="2">
+                         <input type="checkbox" checked="checked" id="enableMouseOverCheckBox"></input>Enable Mouse Over Series<br />
+                    </td>   
+                    <td colspan="2">
+                        <input type="checkbox" checked="checked" id="useBruteForceCheckBox"></input>Use Brute Force<br />
+                    </td>   
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <input type="button" id="generateDataButton" value="Generate Data"></input>
+                    </td>   
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         <div id="seriesLoadingProgressBar" style="width: 150px; margin: 15px"></div>
+                    </td>
+                </tr>
+            </table>
+    <br />

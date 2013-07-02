@@ -1,0 +1,95 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.util.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.ext.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.dv.shared.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.barcode.qrresources.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.encoding.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.barcode.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/igniteui13.2/js/modules/infragistics.ui.barcode.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+<link href="http://igniteuisamples.dev.infragistics.local/13-2/css/apiviewer.css" rel="stylesheet" type="text/css"></link>
+
+<div id="barcode"></div>
+
+    <fieldset id="bulletgraphOptions" style="margin-top: 30px">
+        <legend>$$(Options)</legend>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <span style="width:16%; display:inline-block">$$(Data) </span> 
+                    <input id="dataInput" style="width:70%"></input> 
+                    <input id="setButton" type="button" value="Set" style="width:10%"></input>
+                </td> 
+            </tr>
+            <tr>
+                <td>$$(EciNumber)</td>
+                <td>
+                    <select id="eciNumber" style="width: 100px; margin: 12px">
+                        <option value="0">Cp437</option>
+		                <option value="1">iso-8859-1</option>
+		                <option value="2">Cp437";
+		                <option value="3" selected="">iso-8859-1</option>
+		                <option value="4">iso-8859-2</option>
+		                <option value="5">iso-8859-3</option>
+		                <option value="6">iso-8859-4</option>
+		                <option value="7">iso-8859-5</option>
+		                <option value="8">iso-8859-6</option>
+		                <option value="9">iso-8859-7</option>
+		                <option value="10">iso-8859-8</option>
+		                <option value="11">iso-8859-9</option>
+		                <option value="13">iso-8859-11</option>
+		                <option value="15">iso-8859-13</option> 
+		                <option value="17">iso-8859-15</option> 
+		                <option value="20">shift_jis</option>
+		                <option value="21">windows-1250</option>
+		                <option value="22">windows-1251</option>
+		                <option value="23">windows-1252</option>
+		                <option value="24">windows-1256</option>
+		                <option value="25">ISO-10646-UCS-2</option>
+		                <option value="26">UTF-8</option>
+		                <option value="27">ISO646-US</option>
+		                <option value="28">Big5</option>
+		                <option value="29">gb2312</option>
+		                <option value="30">KSC5601</option>
+	                </option></select>  
+                </td>
+                <td>$$(ECCLevel)</td>
+                <td>
+                    <select id="eccLevel" style="width: 100px; margin: 12px">
+                        <option>Low</option>
+                        <option selected="">Medium</option>
+                        <option>Quartil</option>
+                        <option>High</option>
+                    </select>
+                </td> 
+            </tr>
+            <tr>
+                <td>$$(SizeVersion)</td>
+                <td>
+                    <select id="sizeVersion" style="width: 100px; margin: 12px"></select> 
+                </td> 
+                <td>$$(EncodingMode)</td>
+                <td>
+                    <select id="encodingMode" style="width: 100px; margin: 12px">
+		                <option>Undefined</option>
+		                <option>Numeric</option>
+		                <option>Alphanumeric</option>
+		                <option>Byte</option>
+		                <option>Kanji</option>
+	                </select>
+                </td>             
+            </tr>
+            <tr>
+                <td>$$(ECIHeaderDisplayMode)</td>
+                 <td>
+                    <select id="eciHeaderDisplayMode" style="width: 100px; margin: 12px">
+                        <option>Hide</option>
+                        <option>Show</option>
+                    </select>
+                </td>               
+            </tr>            
+        </table>
+    </fieldset>
