@@ -1,0 +1,143 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.lob.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/external/knockout-latest.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/external/knockout.mapping-latest.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/extensions/infragistics.ui.editors.knockout-extensions.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/extensions/infragistics.datasource.knockoutjs.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/extensions/infragistics.ui.grid.knockout-extensions.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js-data/northwind"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/i18n/infragistics-ja.js"></script>
+
+<table>
+        <tr>
+            <td style="width:50%"> 
+                <fieldset>
+                    <legend>親の最初の行</legend>
+                    <label><b>社員 ID:</b> </label>
+                    <span id="idEditor" data-bind="text: Records()[0].EmployeeID, valueUpdate: 'afterkeydown'"></span>
+                    <br />
+                    <label><b>名前:</b> </label>
+                    <input id="fnameEditor" type="text" data-bind="value: Records()[0].FirstName, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>名字:</b> </label>
+                    <input id="lnameEditor" type="text" data-bind="value: Records()[0].LastName, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>市:</b> </label>
+                    <input id="cityEditor" type="text" data-bind="value: Records()[0].City, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>国名:</b> </label>
+                    <input id="countryEditor" type="text" data-bind="value: Records()[0].Country, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                </fieldset>
+            </td>
+            <td style="width:50%">
+                <fieldset>
+                    <legend>最初の子の最初の行</legend>
+                    <label><b>注文 ID:</b> </label>
+                    <span id="orderID" data-bind="text: Records()[0].Orders.results()[0].OrderID, valueUpdate: 'afterkeydown'"></span>
+                    <br />
+                    <label><b>出荷名:</b> </label>
+                    <input id="shipperName" type="text" data-bind="value: Records()[0].Orders.results()[0].ShipName, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>輸送:</b> </label>
+                    <input id="totalItems" type="text" data-bind="value: Records()[0].Orders.results()[0].Freight, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>郵便番号:</b> </label>
+                    <input id="totalPrice" type="text" data-bind="value: Records()[0].Orders.results()[0].ShipPostalCode, valueUpdate: 'afterkeydown'"></input>
+                    <br />
+                    <label><b>注文日:</b> </label>
+                    <input id="orderDate" type="date" data-bind="igDatePicker: { value: Records()[0].Orders.results()[0].OrderDate, valueUpdate: 'afterkeydown'}"></input>
+                    <br />
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+
+    
+
+    
+
+    <table id="grid" data-bind="igHierarchicalGrid:
+               {
+                   dataSource: Records,
+                   responseDataKey: 'results',                 
+                   autoCommit: true,
+                   width: 740,
+                   initialDataBindDepth: -1,
+                   primaryKey: 'EmployeeID',
+                   dataSourceType: 'json',
+                   autoGenerateColumns: false,
+                   autoGenerateLayots: false,
+                   childrenDataProperty: 'Orders',
+                   columns: [
+                       { key: 'EmployeeID', headerText: '社員 ID', width: 100, dataType: 'number' },
+                       { key: 'FirstName', headerText: '名前', width: 150, dataType: 'string' },
+                       { key: 'LastName', headerText: '名字', width: 150, dataType: 'string' },
+                       { key: 'City', headerText: '市', width: 150, dataType: 'string' },
+                       { key: 'Country', headerText: '国名', width: 150, dataType: 'string' }
+                   ],
+                   columnLayouts: [
+                       {
+                           key: 'Orders',
+                           primaryKey: 'OrderID',
+                           responseDataKey: 'results',
+                           foreignKey: 'EmployeeID',
+                           autoGenerateColumns: false,
+                           autoCommit:true,
+                           dataSourceType: 'json',
+                           features: [
+                               {
+                                   name: 'Updating',
+                                   editMode: 'cell',
+                                   enableDataDirtyException: false,
+                                   enableDeleteRow: false,
+                                   enableAddRow: false,
+                                   columnSettings: [
+                                       {
+                                           columnKey: 'OrderID',
+                                           readOnly: true
+                                       }
+                                   ]
+                               },
+                               {
+                                    name: 'Paging',
+                                    type: 'local',
+                                    pageSize: 5
+                               }
+                           ],
+                           columns: [
+                               { key: 'OrderID', headerText: '注文 ID', width: 100, dataType: 'number' },
+                               { key: 'ShipName', headerText: '出荷名', width: 200, dataType: 'string' },
+                               { key: 'Freight', headerText: '輸送', width: 100, dataType: 'string' },
+                               { key: 'ShipPostalCode', headerText: '郵便番号', width: 100, dataType: 'string' },
+                               { key: 'OrderDate', headerText: '注文日', width: 200, dataType: 'date' }
+                           ]
+                       }
+                   ],
+                   features: [
+                       {
+                           name: 'Updating',
+                           editMode: 'cell',
+                           enableDataDirtyException: false,
+                           inherit: true,
+                           columnSettings: [
+                               {
+                                   columnKey: 'EmployeeID',
+                                   readOnly: true
+                               }
+                           ]
+                       },
+                       {
+                           name: 'Selection',
+                           mode: 'row',
+                           multipleSelection: false,
+                           activation: true
+                       }
+                   ]
+               }">
+    </table>

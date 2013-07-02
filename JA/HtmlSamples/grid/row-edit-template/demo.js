@@ -30,41 +30,47 @@ $(function () {
                     // then the dataType: "number" is required, otherwise, dataSource may misbehave
                     headerText: "従業員 ID", key: "EmployeeID", width: "100px", dataType: "number"
                 }, {
-                    headerText: "名前", key: "FirstName", width: "130px"
+                    headerText: "名前", key: "FirstName", width: "100px"
                 }, {
                     headerText: "名字", key: "LastName", width: "100px"
                 }, {
-                    headerText: "役職", key: "Title", width: "80px"
+                    headerText: "役職", key: "Title", width: "130px"
                 }, {
-                    headerText: "生年月日", key: "BirthDate", width: "120px", dataType: "date"
+                    headerText: "生年月日", key: "BirthDate", width: "100px", dataType: "date"
                 }, {
-                    headerText: "郵便番号", key: "PostalCode", width: "150px", dataType: "number"
+                    headerText: "郵便番号", key: "PostalCode", width: "100px", dataType: "number"
                 }, {
-                    headerText: "国", key: "Country", width: "150px", dataType: "string"
+                    headerText: "国", key: "Country", width: "50px", dataType: "string"
                 }
                 ],
                 dataSource: northwind,
                 dataSourceType: "json",
                 responseDataKey: "results",
-                height: "700px",
+                width: "740px",
+                height: "100%",
                 tabIndex: 1,
-                features: [{
+                features: [
+                    {
                     name: "Selection",
                     mode: "row"
-                }, {
+                    },
+                    {
                     name: "Updating",
                     enableAddRow: false,
                     editMode: "rowedittemplate",
                     rowEditDialogWidth: 350,
-                    rowEditDialogHeight: 450,
-                    rowEditDialogMaxHeight: 320,
+                        rowEditDialogHeight: '430',
+                        rowEditDialogContentHeight: 300,
                     rowEditDialogFieldWidth: 150,
                     rowEditDialogOkCancelButtonWidth: 110,
+                        rowEditDialogContainment: "owner",
                     rowEditDialogRowTemplateID: "rowEditDialogRowTemplate1",
                     enableDeleteRow: false,
                     showReadonlyEditors: false,
+                        showDoneCancelButtons: true,
                     enableDataDirtyException: false,
-                    columnSettings: [{
+                        columnSettings: [
+                            {
                         columnKey: "EmployeeID",
                         readOnly: true
                     }, {
@@ -92,8 +98,10 @@ $(function () {
                         validation: true,
                         editorOptions: { minValue: new Date(1955, 1, 19), maxValue: new Date(), required: true },
                         validatorOptions: { bodyAsParent: false }
-                    }]
-                }]
+                            }
+                        ]
+                    }
+                ]
             });
 
         });

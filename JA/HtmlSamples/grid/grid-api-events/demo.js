@@ -111,23 +111,24 @@ $(function () {
                     // then the dataType: "number" is required, otherwise, dataSource may misbehave
                     headerText: "従業員 ID", key: "EmployeeID", width: "100px", dataType: "number"
                 }, {
-                    headerText: "名前", key: "FirstName", width: "130px"
+                    headerText: "名前", key: "FirstName", width: "100px"
                 }, {
                     headerText: "名字", key: "LastName", width: "100px"
                 }, {
-                    headerText: "役職", key: "Title", width: "150px"
+                    headerText: "役職", key: "Title", width: "140px"
                 }, {
                     headerText: "生年月日", key: "BirthDate", width: "120px", dataType: "date"
                 }, {
-                    headerText: "郵便番号", key: "PostalCode", width: "150px", dataType: "number"
+                    headerText: "郵便番号", key: "PostalCode", width: "80px", dataType: "number"
                 }, {
-                    headerText: "国", key: "Country", width: "150px", dataType: "string"
+                    headerText: "国", key: "Country", width: "100px", dataType: "string"
                 }
                 ],
                 dataSource: northwind,
                 dataSourceType: "json",
                 responseDataKey: "results",
-                height: "700px",
+                height: "500px",
+                width: "740px",
                 tabIndex: 1,
                 features: [
                     {
@@ -136,7 +137,8 @@ $(function () {
                         multipleSelection: true
                     },
                     {
-                        name: "Paging"
+                        name: "Paging",
+                        pageSize: 5
                     },
                     {
                         name: "Filtering"

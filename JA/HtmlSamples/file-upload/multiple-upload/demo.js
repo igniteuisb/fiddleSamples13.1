@@ -8,7 +8,7 @@ $(function () {
                 multipleFiles: true,
                 maxUploadedFiles: 5,
                 maxSimultaneousFilesUploads: 2,
-                progressUrl: "/IGUploadStatusHandler.ashx",
+                progressUrl: "http://igniteuisamples.dev.infragistics.local/13-2/IGUploadStatusHandler.ashx",
                 controlId: "serverID1",
                 labelUploadButton: buttonLabel,
                 onError: function (e, args) {

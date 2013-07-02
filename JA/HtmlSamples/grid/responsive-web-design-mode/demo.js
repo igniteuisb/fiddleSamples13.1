@@ -1,21 +1,22 @@
 $(function () {
             $("#grid").igGrid({
                 columns: [
-                    { headerText: "顧客 ID", key: "ID", dataType: "string" },
-                    { headerText: "会社名", key: "CompanyName", dataType: "string" },
-                    { headerText: "名前", key: "ContactName", dataType: "string" },
-                    { headerText: "連絡先", key: "ContactTitle", dataType: "string" },
-                    { headerText: "住所", key: "Address", dataType: "string" },
-                    { headerText: "市", key: "City", dataType: "string" },
-                    { headerText: "国名", key: "Country", dataType: "string" }
+                    { headerText: "顧客 ID", key: "ID", dataType: "string", width:"100px" },
+                    { headerText: "会社名", key: "CompanyName", dataType: "string", width: "120px" },
+                    { headerText: "名前", key: "ContactName", dataType: "string", width: "100px" },
+                    { headerText: "連絡先", key: "ContactTitle", dataType: "string", width: "120px" },
+                    { headerText: "住所", key: "Address", dataType: "string", width: "110px" },
+                    { headerText: "市", key: "City", dataType: "string", width: "100px" },
+                    { headerText: "国名", key: "Country", dataType: "string", width: "60px" }
                 ],
-                autoGenerateColumns: false,
+                autoGenerateColumns: false,                
                 dataSource: nwCustomersWithOrders,
-                width: "100%",
+                width: "740px",
                 height: "100%",
                 features: [
                     {
                         name: "Responsive",
+                        enableVerticalRendering: false,
                         columnSettings: [
                             {
                                 columnKey: "ID",

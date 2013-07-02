@@ -1,0 +1,419 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="../../js/jquery.animate-colors-min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.lob.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/external/knockout-latest.js"></script>
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/external/knockout.mapping-latest.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/extensions/infragistics.ui.editors.knockout-extensions.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/extensions/infragistics.ui.datachart.knockout-extensions.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/i18n/infragistics-ja.js"></script>
+
+<div class="main-container">
+        <div class="editor-container">
+            <label class="labels">月:</label>
+            <div id="ed-month" data-bind="igTextEditor: { value: currentMonth, width: 100, updateMode: 'immediate' }"></div>
+        </div>
+        <div class="editor-container">
+            <label class="labels">売上:</label>
+            <div id="ed-revenue" data-bind="igNumericEditor: {
+                value: currentRevenue,
+                width: 100,
+                minValue: 0,
+                maxValue: 50,
+                button: 'spin',
+                spinDelta: 5,
+                updateMode: 'immediate'
+                }"></div>
+        </div>
+        <div class="editor-container">
+            <label class="labels">経費:</label>
+            <div id="ed-expenses" data-bind="igNumericEditor: {
+                value: currentExpenses,
+                width: 100,
+                minValue: 0,
+                maxValue: 50,
+                button: 'spin',
+                spinDelta: 5,
+                updateMode: 'immediate'
+            }"></div>
+        </div>
+        <div class="editor-container">
+            <label class="labels">利益:</label>
+            <div id="ed-profit" data-bind="igNumericEditor: {
+                value: currentProfit,
+                width: 100,
+                minValue: -50,
+                button: 'spin',
+                spinDelta: 5,
+                maxValue: 50,
+                updateMode: 'immediate'
+            }"></div>
+        </div>
+        <button class="btn-refresh" title="新しいチャート データを生成する"></button>
+        <div class="clear"></div>
+        <div class="eidtors-title">
+            エディター値を変更すると、以下のチャートを更新します。
+            <div class="year-profit" data-bind="igCurrencyEditor: {
+                value: yearProfit,
+                readOnly: true,
+                width: 100,
+                negativePattern: '$ -n',
+                postivePattern: '$ n'
+            }"></div>
+            <span class="year-profit"> 年利益: </span>
+        </div>
+        <div class="clear hr"></div>
+        <div class="slider-title">
+            スライダーを移動すると、データを表示するか編集するために月を選択します。
+            <div class="number-container"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="window-container-1">
+            <div class="slider-container">
+                <div id="slider1"></div>
+            </div>
+            <div class="clear"></div>
+            <div id="lineChart" class="float" data-bind='igDataChart: {
+                dataSource: data,
+                width: 700,
+                height: 200,
+                leftMargin: 5,
+                legend: { element: "legendLineChart" },
+                axes: [{
+                    name: "xAxis",
+                    type: "categoryX",
+                    interval: chartIntervalX,
+                    label: "month",
+                    labelLocation: "outsideTop"
+
+                }, {
+                    name: "yAxis",
+                    type: "numericY",
+                    interval: 10,
+                    minimumValue: -50,
+                    maximumValue: 50,
+                    labelExtent: 30
+
+                }],
+                series: [{
+                    name: "line1",
+                    title: "売上",
+                    type: "line",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "revenue",
+                    transitionDuration: transitionDuration,
+                    brush: revenueColor
+                },
+                {
+                    name: "line2",
+                    title: "経費",
+                    type: "line",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "expenses",
+                    transitionDuration: transitionDuration,
+                    brush: expensesColor
+                }, {
+                    name: "line3",
+                    title: "利益",
+                    type: "line",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "profit",
+                    transitionDuration: transitionDuration,
+                    brush: profitColor
+                }]
+            }'>
+	        </div>
+            <div id="legendLineChart"></div>
+            <div id="polarSplineChartRevenue" class="float" data-bind='igDataChart: {
+                width: 226,
+                height: 275,
+                dataSource: data,
+                legend: { element: "legendPolarChartRevenue" },
+                axes: [{
+                    name: "angleAxis",
+                    type: "numericAngle",
+                    interval: chartIntervalX,
+                    formatLabel: formatMonth,
+                },
+                {
+                    name: "radiusAxis",
+                    type: "numericRadius"
+                }],
+                series: [{
+                    name: "polarSpline",
+                    type: "polarSpline",
+                    title: "売上",
+                    angleAxis: "angleAxis",
+                    radiusAxis: "radiusAxis",
+                    angleMemberPath: "index",
+                    radiusMemberPath: "revenue",
+                    transitionDuration: transitionDuration,
+                    brush: revenueColor
+                }]
+            }'>
+	        </div>
+            <div id="legendPolarChartRevenue"></div>
+            <div id="polarSplineChartExpenses" class="float" data-bind='igDataChart: {
+                width: 228,
+                height: 275,
+                dataSource: data,
+                legend: { element: "legendPolarChartExpenses" },
+                axes: [{
+                    name: "angleAxis",
+                    type: "numericAngle",
+                    interval: chartIntervalX,
+                    formatLabel: formatMonth,
+                },
+                {
+                    name: "radiusAxis",
+                    type: "numericRadius"
+                }],
+                series: [{
+                    name: "polarSpline",
+                    type: "polarSpline",
+                    title: "経費",
+                    angleAxis: "angleAxis",
+                    radiusAxis: "radiusAxis",
+                    angleMemberPath: "index",
+                    radiusMemberPath: "expenses",
+                    transitionDuration: transitionDuration,
+                    brush: expensesColor
+                }]
+            }'>
+	        </div>
+            <div id="legendPolarChartExpenses"></div>
+            <div id="polarSplineChartProfit" class="float" data-bind='igDataChart: {
+                width: 226,
+                height: 275,
+                dataSource: data,
+                legend: { element: "legendPolarChartProfit" },
+                axes: [{
+                    name: "angleAxis",
+                    type: "numericAngle",
+                    interval: chartIntervalX,
+                    formatLabel: formatMonth,
+                },
+                {
+                    name: "radiusAxis",
+                    type: "numericRadius"
+                }],
+                series: [{
+                    name: "polarSpline",
+                    type: "polarSpline",
+                    title: "利益",
+                    angleAxis: "angleAxis",
+                    radiusAxis: "radiusAxis",
+                    angleMemberPath: "index",
+                    radiusMemberPath: "profit",
+                    transitionDuration: transitionDuration,
+                    brush: profitColor
+                }]
+            }'>
+	        </div>
+            <div id="legendPolarChartProfit"></div>
+
+            <div id="rangeChart" class="float" data-bind='igDataChart: {
+                dataSource: data,
+                width: 700,
+                height: 185,
+                leftMargin: 5,
+                legend: { element: "legendRangeChart" },
+                axes: [{
+                    name: "xAxis",
+                    type: "categoryX",
+                    interval: chartIntervalX,
+                    label: "month",
+                    labelLocation: "outsideTop"
+                },
+                {
+                    name: "yAxis",
+                    type: "numericY",
+                    labelExtent: 30
+                }],
+                series: [{
+                    name: "rangeArea",
+                    type: "rangeArea",
+                    title: "Revenue-Profit Delta",
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    lowMemberPath: "revenue",
+                    highMemberPath: "profit",
+                    showTooltip: true,
+                    tooltipTemplate: "Revenue-Profit Delta",
+                    transitionDuration: transitionDuration
+                }]
+            }'></div>
+            <div id="legendRangeChart"></div>
+        </div>
+        <div class="window-container-2">
+            <div class="slider-container slider-contaier-2">
+                <div id="slider2"></div>
+            </div>
+            <div id="barColumnChart" class="float" data-bind='igDataChart: {
+                dataSource: data,
+                width: 700,
+                height: 220,
+                leftMargin: 5,
+                legend: { element: "legendBarColumnChart" },
+                axes: [{
+                    name: "xAxis",
+                    type: "categoryX",
+                    interval: chartIntervalX,
+                    label: "month",
+                    labelLocation: "outsideTop"
+                }, {
+                    name: "yAxis",
+                    type: "numericY",
+                    minimumValue: -50,
+                    maximumValue: 50
+                }],
+                series: [{
+                    name: "column1",
+                    type: "column",
+                    title: "売上",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "revenue",
+                    transitionDuration: transitionDuration,
+                    brush: revenueColor,
+                    outline: outlineColor
+                },
+                {
+                    name: "column2",
+                    type: "column",
+                    title: "経費",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "expenses",
+                    transitionDuration: transitionDuration,
+                    brush: expensesColor,
+                    outline: outlineColor
+                }, {
+                    name: "column3",
+                    type: "column",
+                    title: "利益",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "profit",
+                    transitionDuration: transitionDuration,
+                    brush: profitColor,
+                    outline: outlineColor
+                }]
+            }'></div>
+           <div id="legendBarColumnChart"></div>
+           <div id="waterfallChart" class="float" data-bind='igDataChart: {
+                dataSource: data,
+                width: 700,
+                height: 220,
+                leftMargin: 5,
+                legend: { element: "legendWaterfallChart" },
+                axes: [{
+                    name: "xAxis",
+                    type: "categoryX",
+                    interval: chartIntervalX,
+                    label: "month",
+                    labelLocation: "outsideTop"
+                }, {
+                    name: "yAxis",
+                    type: "numericY",
+                    minimumValue: -50,
+                    maximumValue: 50
+                }],
+                series: [{
+                    name: "waterfall1",
+                    type: "waterfall",
+                    title: "売上",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "revenue",
+                    transitionDuration: transitionDuration,
+                    brush: revenueColor,
+                    outline: outlineColor
+
+                }, {
+                    name: "waterfall2",
+                    type: "waterfall",
+                    title: "経費",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "expenses",
+                    transitionDuration: transitionDuration,
+                    brush: expensesColor,
+                    outline: outlineColor
+                }, {
+                    name: "waterfall3",
+                    type: "waterfall",
+                    title: "利益",
+                    thickness: chartThickness,
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    valueMemberPath: "profit",
+                    transitionDuration: transitionDuration,
+                    brush: profitColor,
+                    outline: outlineColor
+                }]
+            }'>
+	        </div>
+            <div id="legendWaterfallChart"></div>
+            <div id="bubbleChart" class="float" data-bind='igDataChart: {
+                dataSource: data,
+                width: 700,
+                height: 220,
+                leftMargin: 5,
+                legend: { element: "legendBubbleChart" },
+                axes: [{
+                    name: "xAxis",
+                    type: "numericX",
+                    interval: chartIntervalX,
+                    formatLabel: formatMonth,
+                    labelLocation: "outsideTop"
+                }, {
+                    name: "yAxis",
+                    type: "numericY",
+                    labelExtent: 30
+                }],
+                series: [{
+                    name: "bubble",
+                    type: "bubble",
+                    title: "利益",
+                    xAxis: "xAxis",
+                    yAxis: "yAxis",
+                    xMemberPath: "index",
+                    yMemberPath: "profit",
+                    radiusMemberPath: "revenue",
+                    fillMemberPath: "revenue",
+                    labelMemberPath: "month",
+                    markerType: "circle",
+                    transitionDuration: transitionDuration,
+                    fillScale: {
+                        type: "value",
+                        brushes: [expensesColor, profitColor]
+                    }
+                }]
+            }'></div>
+            <div id="legendBubbleChart"></div>
+            <div id="legendBubbleChartY"><span class="arrow">&uarr;</span>売上</div>
+            <div id="legendBubbleChartX">月<span class="arrow">&rarr;</span></div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <button id="loadHidden" class="windows-button" title="Load More Charts"></button>
+        <button id="loadInitial" class="windows-button" title="Load Initial Charts"></button>
+    </div>
+    <div class="clear"></div>

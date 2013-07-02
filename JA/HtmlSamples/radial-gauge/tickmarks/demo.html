@@ -1,0 +1,122 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/i18n/infragistics-ja.js"></script>
+
+<div id="radialgauge"></div>
+    <div>
+        <fieldset id="gaugeOptions">
+            <legend>オプション</legend>
+            <table>
+                <tr>
+                    <td colspan="6"><strong>目盛りのサイズ プロパティ</strong></td>
+                </tr>
+                <tr>
+                    <td>開始範囲</td>
+                    <td>
+                        <div id="tickmarkStartExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="tickmarkStartExtentLabel">0.50</label>
+                    </td>
+
+                    <td>終了範囲</td>
+                    <td>
+                        <div id="tickmarkEndExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="tickmarkEndExtentLabel">0.57</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ストロークの太さ</td>
+                    <td>
+                        <div id="tickmarkStrokeThicknessSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="tickmarkStrokeThicknessLabel">3</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="6"><strong>副目盛りのサイズ プロパティ</strong></td>
+
+                </tr>
+                <tr>
+                    <td>開始範囲</td>
+                    <td>
+                        <div id="minorTickmarkStartExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="minorTickmarkStartExtentLabel">0.57</label>
+                    </td>
+
+                    <td>終了範囲</td>
+                    <td>
+                        <div id="minorTickmarkEndExtentSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="minorTickmarkEndExtentSliderLabel">0.54</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>目盛り数</td>
+                    <td>
+                        <div id="tickCountSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="tickCountLabel">5</label>
+                    </td>
+
+                    <td>ストロークの太さ</td>
+                    <td>
+                        <div id="minorTickmarkStrokeThicknessSlider" style="width: 100px; margin: 12px"></div>
+                    </td>
+                    <td>
+                        <label id="minorTickmarkStrokeThicknessLabel">1</label>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><strong>ブラシ</strong></td>
+
+                    <tr>
+                        <td>目盛りのブラシ</td>
+                        <td>
+                            <select id="tickmarkBrushDropdown">
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="black" selected="selected">Black</option>
+                            </select>
+                        </td>
+                        <td></td>
+                        <td>副目盛りのブラシ</td>
+                        <td>
+                            <select id="minorTickmarkBrushDropdown">
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="black" selected="selected">Black</option>
+                            </select>
+                        </td>
+                    </tr>
+                <tr>
+                    <td>トランジション期間</td>
+                    <td>
+                        <div id="transitionDurationSlider" style="width : 100px; margin : 12px"></div>
+                    </td>
+                    <td style="width : 30px">
+                        <label id="transitionDurationLabel">2</label>
+                    </td>
+                </tr>
+            </tr></table>
+        </fieldset>
+    </div>

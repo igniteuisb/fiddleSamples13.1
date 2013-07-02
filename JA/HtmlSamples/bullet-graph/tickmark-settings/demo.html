@@ -1,0 +1,133 @@
+<script src="http://igniteuisamples.dev.infragistics.local/13-2/js/modernizr.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.core.js"></script>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/infragistics.dv.js"></script>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="http://cdn-na.infragistics.com/jquery/20132/beta/css/structure/infragistics.css" rel="stylesheet"></link>
+<script src="http://cdn-na.infragistics.com/jquery/20132/beta/js/i18n/infragistics-ja.js"></script>
+
+<div id="bulletgraph">
+    </div>
+
+    
+    
+    <fieldset id="graphOptions" style="margin-top: 30px">
+        <legend>オプション</legend>
+        <table>
+            <tr>
+                <td>間隔</td>
+                <td>
+                    <div id="intervalSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="intervalLabel" class="left-label">10</label>
+                </td>
+
+                <td>副目盛りの数</td>
+                <td>
+                    <div id="minorTickCountSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="minorTickCountLabel">10</label>
+                </td>
+            </tr>
+            <tr>
+                <td>目盛りの開始範囲</td>
+                <td>
+                    <div id="tickStartExtentSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="tickStartExtentLabel" class="left-label">0.02</label>
+                </td>
+
+                <td>目盛りの終了範囲</td>
+                <td>
+                    <div id="tickEndExtentSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="tickEndExtentLabel">0.2</label>
+                </td>
+            </tr>
+            <tr>
+                <td>副目盛りの開始範囲</td>
+                <td>
+                    <div id="minorTickStartExtentSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="minorTickStartExtentLabel" class="left-label">0.06</label>
+                </td>
+
+                <td>副目盛りの終了範囲</td>
+                <td>
+                    <div id="minorTickEndExtentSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="minorTickEndExtentLabel">0.2</label>
+                </td>
+            </tr>
+            <tr>
+                <td>初期化の後の目盛り</td>
+                <td>
+                    <div id="ticksPostInitialSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="ticksPostInitialLabel" class="left-label">0</label>
+                </td>
+
+                <td>終了の前の目盛り</td>
+                <td>
+                    <div id="ticksPreTerminalSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="ticksPreTerminalLabel">0</label>
+                </td>
+            </tr>
+            <tr>
+                <td>目盛りのストロークの太さ</td>
+                <td>
+                    <div id="tickStrokeThicknessSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="tickStrokeThicknessLabel" class="left-label">2</label>
+                </td>
+
+                <td>副目盛りのストロークの太さ</td>
+                <td>
+                    <div id="minorTickStrokeThicknessSlider" style="width: 100px; margin: 12px"></div>
+                </td>
+                <td>
+                    <label id="minorTickStrokeThicknessLabel">1</label>
+                </td>
+            </tr>
+            <tr>
+                <td>目盛りのブラシ</td>
+                <td>
+                    <select id="tickBrushSelect" style="width: 100px; margin: 12px">
+                        <option selected="selected">Black</option>
+                        <option>Red</option>
+                        <option>Green</option>
+                        <option>Blue</option>
+                        <option>Yellow</option>
+                    </select>
+                </td>
+                <td>
+                    
+                </td>
+
+                <td>副目盛りのブラシ</td>
+                <td>
+                    <select id="minorTickBrushSelect" style="width: 100px; margin: 12px">
+                        <option selected="selected">Black</option>
+                        <option>Red</option>
+                        <option>Green</option>
+                        <option>Blue</option>
+                        <option>Yellow</option>
+                    </select>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+    </fieldset>

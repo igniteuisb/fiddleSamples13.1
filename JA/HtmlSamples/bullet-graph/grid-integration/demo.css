@@ -1,0 +1,15 @@
+.left-label {
+            margin-right: 30px;
+            min-width: 60px;
+            display: block;
+        }
+
+        .ui-bulletgraph-targetValue {
+            background-color: white;
+            border-color: white;
+        }
+
+        .ui-bulletgraph-actualvalue-palette-1 {
+            background-color: white;
+            border-color: white;
+        }
